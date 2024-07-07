@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import handleClick from '../SearchButton/handleClick';
+import handleClick from './handleClick';
 
 interface NameFormProps {}
 

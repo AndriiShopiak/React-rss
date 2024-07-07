@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import SearchInput from '../components/SearchInput';
-import Button from '../components/SearchButton';
+import ResultTab from '../components/ResultTab';
 
 class SearchPage extends Component {
   render() {
@@ -10,13 +10,14 @@ class SearchPage extends Component {
           <div className="container">
             <div className="search_elem">
               <SearchInput />
-              <Button />
             </div>
           </div>
         </section>
         <section className="bottom">
           <div className="container">
-            <div className="view_result"></div>
+            <div className="view_result">
+              <ResultTab />
+            </div>
           </div>
         </section>
       </>

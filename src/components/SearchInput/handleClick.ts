@@ -1,4 +1,6 @@
+// import getPeopleSearch from '../../api/getPeopleSearch';
+
 export default function handleClick(value: string) {
-  console.log(value);
   localStorage.setItem('value', value);
+  // getPeopleSearch(value);
 }

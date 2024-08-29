@@ -1,31 +1,57 @@
-import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
-import './App.css';
+import { Component, ReactNode } from 'react';
+import axios from 'axios';
+import SearchInput from './components/SearchInput';
+import ResultTab from './components/ResultTab';
 
-function App() {
-  const [count, setCount] = useState(0);
-
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">Click on the Vite and React logos to learn more</p>
-    </>
-  );
+interface AppProps {}
+interface AppState {
+  searchResults: string[];
+  isLoading: boolean;
+  hasError: boolean;
 }
 
+class App extends Component<AppProps, AppState> {
+  constructor(props: AppProps) {
+    super(props);
+    this.state = {
+      searchResults: [],
+      isLoading: true,
+      hasError: false,
+    };
+  }
+  componentDidMount(): void {
+    this.getPeople();
+  }
+  async getPeople() {
+    try {
+      const result = await axios.get('https://swapi.dev/api/people');
+      this.setState({ searchResults: result.data });
+      return result;
+    } catch {
+      console.log('Something went wrong for people request');
+    }
+  }
+  async getPeopleSearch(searchWord: string) {
+    let mainUrl: string = 'https://swapi.dev/api/people';
+    if (localStorage.getItem('value')) {
+      mainUrl = 'https://swapi.dev/api/people/?search=' + `${searchWord}`;
+    }
+    try {
+      const result = await axios.get(mainUrl);
+      return result;
+    } catch {
+      console.log('Something went wrong for people request');
+    }
+  }
+  render(): ReactNode {
+    console.log(this.state.searchResults);
+    return (
+      <>
+        <SearchInput onSearch={this.getPeopleSearch} />
+        <pre>Hello, I am React App Component</pre>
+        <ResultTab value={this.state.searchResults} />
+      </>
+    );
+  }
+}
 export default App;

@@ -1,11 +1,13 @@
-interface resultList {
+export interface itemInfo {
   name: string;
+  birth_year: string;
+  skin_color: string;
 }
-interface dataList {
+export interface dataList {
   count: number;
   next: string;
   previous: string | null;
-  results: resultList[];
+  results: itemInfo[];
 }
 export interface propsTypes {
   value: dataList;

@@ -1,6 +1,7 @@
 import React from 'react';
 import { ReactNode } from 'react';
 import { propsTypes } from '../../types/types';
+import HeroCard from '../HeroCard';
 
 class ResultTab extends React.Component<propsTypes> {
   render(): ReactNode {
@@ -9,7 +10,7 @@ class ResultTab extends React.Component<propsTypes> {
     console.log(this.props.value);
     if (results) {
       return results.map((el, i) => {
-        return <li key={i}>{el.name}</li>;
+        return <HeroCard key={i} item={el} />;
       });
     }
   }

@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import handleClick from './handleClick';
+import './Input.css';
 
 interface NameFormProps {
   onSearch: (data: string) => void;

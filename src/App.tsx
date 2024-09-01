@@ -5,7 +5,8 @@ import ResultTab from './components/ResultTab';
 
 interface AppProps {}
 interface AppState {
-  searchResults: string[];
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  searchResults: any;
   isLoading: boolean;
   hasError: boolean;
 }
@@ -44,9 +45,9 @@ class App extends Component<AppProps, AppState> {
     }
   }
   render(): ReactNode {
-    console.log(this.state.searchResults);
     return (
       <>
+        <h1>Welcome to Star Wars Search</h1>
         <SearchInput onSearch={this.getPeopleSearch} />
         <pre>Hello, I am React App Component</pre>
         <ResultTab value={this.state.searchResults} />

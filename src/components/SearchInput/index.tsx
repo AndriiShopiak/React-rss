@@ -1,9 +1,9 @@
 import { Component } from 'react';
-import handleClick from './handleClick';
 import './Input.css';
+import handleClick from './handleClick';
 
 interface NameFormProps {
-  onSearch: (data: string) => void;
+  onSearch: (url: string) => void;
 }
 
 interface NameFormState {
@@ -27,9 +27,15 @@ class SearchInput extends Component<NameFormProps, NameFormState> {
             onChange={(e) => {
               console.log('Editing input field...');
               this.setState({ result: e.target.value });
+              handleClick(e.target.value);
             }}
           />
-          <button type="button" onClick={() => handleClick(this.state.result)}>
+          <button
+            type="button"
+            onClick={() => {
+              this.props.onSearch(localStorage.getItem('value') || 'https://swapi.dev/api/people');
+            }}
+          >
             Send
           </button>
         </>

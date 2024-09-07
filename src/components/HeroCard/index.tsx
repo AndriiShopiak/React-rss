@@ -7,7 +7,6 @@ interface itemsInfo {
 
 class HeroCard extends React.Component<itemsInfo> {
   render(): ReactNode {
-    console.log(this.props);
     return (
       <div className="cardItem">
         <h3>{this.props.item.name}</h3>

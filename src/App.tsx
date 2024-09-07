@@ -55,9 +55,8 @@ class App extends Component<AppProps, AppState> {
   render(): ReactNode {
     return (
       <>
-        <h1>Welcome to Star Wars Search</h1>
+        <h1 className="mainTitle">Welcome to Star Wars Search</h1>
         <SearchInput onSearch={this.getPeopleSearch} />
-        <pre>Hello, I am React App Component</pre>
         {this.state.isLoading ? <Loader /> : <ResultTab value={this.state.searchResults} />}
       </>
     );

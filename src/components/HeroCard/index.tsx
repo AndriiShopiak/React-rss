@@ -9,9 +9,9 @@ class HeroCard extends React.Component<itemsInfo> {
   render(): ReactNode {
     return (
       <div className="cardItem">
-        <h3>{this.props.item.name}</h3>
-        <p>{this.props.item.birth_year}</p>
-        <p>{this.props.item.skin_color}</p>
+        <h3 className="cardTitle">{this.props.item.name}</h3>
+        <p className="cardInfo">{this.props.item.birth_year}</p>
+        <p className="cardInfo">{this.props.item.skin_color}</p>
       </div>
     );
   }

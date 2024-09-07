@@ -19,6 +19,7 @@ class SearchInput extends Component<NameFormProps, NameFormState> {
       <>
         <>
           <input
+            className="searchInput"
             type="text"
             name="Search"
             id="search"
@@ -32,6 +33,7 @@ class SearchInput extends Component<NameFormProps, NameFormState> {
           />
           <button
             type="button"
+            className="searchButton"
             onClick={() => {
               this.props.onSearch(localStorage.getItem('value') || 'https://swapi.dev/api/people');
             }}

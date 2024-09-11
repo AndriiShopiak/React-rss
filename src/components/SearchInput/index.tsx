@@ -38,7 +38,7 @@ class SearchInput extends Component<NameFormProps, NameFormState> {
               this.props.onSearch(localStorage.getItem('value') || 'https://swapi.dev/api/people');
             }}
           >
-            Send
+            Go
           </button>
         </>
       </>

@@ -4,6 +4,7 @@ import SearchInput from './components/SearchInput';
 import ResultTab from './components/ResultTab';
 import Loader from './components/Loader';
 import { dataList } from './types/types';
+import './assets/styles/global.css';
 
 interface AppProps {}
 interface AppState {

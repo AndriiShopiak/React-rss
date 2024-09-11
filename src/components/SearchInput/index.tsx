@@ -35,7 +35,7 @@ class SearchInput extends Component<NameFormProps, NameFormState> {
             type="button"
             className="searchButton"
             onClick={() => {
-              this.props.onSearch(localStorage.getItem('value') || 'https://swapi.dev/api/people');
+              this.props.onSearch(localStorage.getItem('value') || '');
             }}
           >
             Go

@@ -7,6 +7,9 @@ import './ResultTab.css';
 class ResultTab extends React.Component<propsTypes> {
   render(): ReactNode {
     const { results } = this.props.value;
+    if (results.length === 0) {
+      return <h1>Sorry, I didn't find anything</h1>;
+    }
     return (
       <div className="resultCon">
         {results.map((el, i) => {

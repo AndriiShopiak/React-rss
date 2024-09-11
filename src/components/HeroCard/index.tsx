@@ -18,8 +18,12 @@ class HeroCard extends React.Component<itemsInfo> {
       <div className="cardItem">
         <img className="cardImage" src={imageUrl} alt="Photo" />
         <h3 className="cardTitle">{this.props.item.name}</h3>
-        <p className="cardInfo">{this.props.item.birth_year}</p>
-        <p className="cardInfo">{this.props.item.skin_color}</p>
+        <p className="cardInfo">
+          <b>Date of Birth:</b> {this.props.item.birth_year}
+        </p>
+        <p className="cardInfo">
+          <b>Skin color:</b> {this.props.item.skin_color}
+        </p>
       </div>
     );
   }

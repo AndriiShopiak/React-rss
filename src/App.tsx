@@ -29,7 +29,11 @@ class App extends Component<AppProps, AppState> {
     };
   }
   componentDidMount(): void {
-    this.getPeople();
+    if (localStorage.getItem('value')) {
+      this.getPeopleSearch(localStorage.getItem('value') || '');
+    } else {
+      this.getPeople();
+    }
   }
   async getPeople() {
     this.setState({ isLoading: true });

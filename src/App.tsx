@@ -5,6 +5,7 @@ import ResultTab from './components/ResultTab';
 import Loader from './components/Loader';
 import { dataList } from './types/types';
 import './assets/styles/global.css';
+import ErrorBoundary from './components/ErrorBoundary/errorBoundary';
 
 interface AppProps {}
 interface AppState {
@@ -59,11 +60,11 @@ class App extends Component<AppProps, AppState> {
   }
   render(): ReactNode {
     return (
-      <>
+      <ErrorBoundary>
         <h1 className="mainTitle">Welcome to Star Wars Search</h1>
         <SearchInput onSearch={this.getPeopleSearch} />
         {this.state.isLoading ? <Loader /> : <ResultTab value={this.state.searchResults} />}
-      </>
+      </ErrorBoundary>
     );
   }
 }

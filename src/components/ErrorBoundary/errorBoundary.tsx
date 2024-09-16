@@ -1,6 +1,8 @@
 import React, { ReactNode } from 'react';
+import ErrorTab from '../ErrorTab/errorTab';
 interface StateFields {
   hasError: boolean;
+  errorMessage: string;
 }
 interface ErrorBoundaryProps {
   children: ReactNode;
@@ -9,6 +11,7 @@ interface ErrorBoundaryProps {
 export default class ErrorBoundary extends React.Component<ErrorBoundaryProps, StateFields> {
   state: StateFields = {
     hasError: false,
+    errorMessage: '',
   };
 
   static getDerivedStateFromError() {
@@ -16,14 +19,13 @@ export default class ErrorBoundary extends React.Component<ErrorBoundaryProps, S
     return { hasError: true };
   }
 
-  // componentDidCatch(error: Error, errorInfo: React.ErrorInfo): void {
-  //   console.error('Uncaught error:', error, errorInfo);
-  //   this.setState({ errorMessage: error.toString() });
-  // }
+  componentDidCatch(error: Error, errorInfo: React.ErrorInfo): void {
+    console.error('Uncaught error:', error, errorInfo);
+    this.setState({ errorMessage: error.toString() });
+  }
   render(): ReactNode {
     if (this.state.hasError) {
-      // You can render any custom fallback UI
-      return <h1>Oops, somethimg went wrong</h1>;
+      return <ErrorTab info={this.state.errorMessage} />;
     }
     return this.props.children;
   }

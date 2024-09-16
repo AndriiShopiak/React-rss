@@ -6,6 +6,7 @@ import Loader from './components/Loader';
 import { dataList } from './types/types';
 import './assets/styles/global.css';
 import ErrorBoundary from './components/ErrorBoundary/errorBoundary';
+import ErrorBtnGenerate from './components/ErrorBtnGenerate/errorBtnGenerate';
 
 interface AppProps {}
 interface AppState {
@@ -63,6 +64,7 @@ class App extends Component<AppProps, AppState> {
       <ErrorBoundary>
         <h1 className="mainTitle">Welcome to Star Wars Search</h1>
         <SearchInput onSearch={this.getPeopleSearch} />
+        <ErrorBtnGenerate />
         {this.state.isLoading ? <Loader /> : <ResultTab value={this.state.searchResults} />}
       </ErrorBoundary>
     );

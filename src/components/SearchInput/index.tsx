@@ -26,7 +26,6 @@ class SearchInput extends Component<NameFormProps, NameFormState> {
             defaultValue={localStorage.getItem('value')?.toString()}
             placeholder="What are we looking for today?"
             onChange={(e) => {
-              console.log('Editing input field...');
               this.setState({ result: e.target.value });
               handleClick(e.target.value);
             }}

@@ -11,7 +11,6 @@ class ErrorTab extends React.Component<ErrorInfo> {
   }
   render(): ReactNode {
     const { info } = this.props;
-    console.log(info);
     return (
       <div className="error_tab_block">
         <img src="src\assets\icons\errorIcon.png" alt="ErrorIcon" />
